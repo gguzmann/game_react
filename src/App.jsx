@@ -1,5 +1,5 @@
 import fondo from './assets/NuevoFondo01.png'
-import { BoardContainer } from './components/board/boardContainer'
+import { BoardContainer } from './components/board/BoardContainer'
 import { CardsContainer } from './components/cards/CardsContainer'
 import { DiceContainer } from './components/dice/DiceContainer'
 import { LifeContainer } from './components/life/LifeContainer'
