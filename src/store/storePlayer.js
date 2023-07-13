@@ -13,7 +13,7 @@ export const storePlayer = create((set, get) => ({
   tile: null,
   setTile: (value) => set(state => ({ tile: value })),
   level: 1,
-  monster: new Array(9).fill(null).map(x => monster[randomNum(monster.length)]),
+  monster: new Array(9).fill(null).map(x => ({ ...monster[randomNum(monster.length)] })),
   setMonster: (value) => set(state => ({ monster: value })),
   cards: new Array(3).fill('').map(x => mazoCards[randomNum(mazoCards.length)]),
   setCards: (value) => set(state => ({ cards: value })),

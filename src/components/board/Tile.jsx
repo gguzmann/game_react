@@ -28,8 +28,13 @@ export const Tile = ({ object, index }) => {
       if (state === ESTADO.ATTACK || state === ESTADO.ATTACK_OR_CARDS) {
         console.log(object.life)
         // SI MONSTER =< 0
-        setMonster(monster.map((x, i) => { return index === i ? '' : x }))
-        setState(ESTADO.ROLL_MOVE)
+        monster[index].life = monster[index].life - diceAtk
+        if (monster[index].life < 0) {
+          setMonster(monster.map((x, i) => { return index === i ? '' : x }))
+          setState(ESTADO.ROLL_MOVE)
+        } else {
+          setState(ESTADO.ROLL_ATTACK)
+        }
       }
       setDiceAtk(null)
       setDice(null)
@@ -44,7 +49,7 @@ export const Tile = ({ object, index }) => {
       }
       <img src={object.img} alt='' />
       <div className='absolute'>
-        <div className='relative top-10 left-12 text-white'>{object.life}</div>
+        <div className='relative top-10 left-12 text-white'>{monster[index].life}</div>
       </div>
     </div>
   )
