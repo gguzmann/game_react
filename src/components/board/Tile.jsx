@@ -14,7 +14,7 @@ export const Tile = ({ object, index }) => {
     if ([ESTADO.MOVE_OR_CARDS, ESTADO.MOVE, ESTADO.ROLL_MOVE].includes(state) && dice) {
       movemente(tile, dice, index, setActive)
     }
-    if ([ESTADO.ATTACK, ESTADO.MOVE, ESTADO.ATTACK_OR_CARDS].includes(state)) {
+    if ([ESTADO.ATTACK, ESTADO.ATTACK_OR_CARDS].includes(state)) {
       if (tile === index) setEvent(true)
     }
   }, [dice, diceAtk])
