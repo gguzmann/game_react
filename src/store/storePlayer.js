@@ -8,6 +8,8 @@ export const storePlayer = create((set, get) => ({
   setLife: (value) => set(state => ({ life: value })),
   dice: null,
   setDice: (value) => set(state => ({ dice: value })),
+  diceAtk: null,
+  setDiceAtk: (value) => set(state => ({ diceAtk: value })),
   tile: null,
   setTile: (value) => set(state => ({ tile: value })),
   level: 1,
@@ -15,7 +17,7 @@ export const storePlayer = create((set, get) => ({
   setMonster: (value) => set(state => ({ monster: value })),
   cards: new Array(3).fill('').map(x => mazoCards[randomNum(mazoCards.length)]),
   setCards: (value) => set(state => ({ cards: value })),
-  state: ESTADO.ROLL,
+  state: ESTADO.ROLL_MOVE,
   setState: (value) => set(state => ({ state: value }))
 
 }))

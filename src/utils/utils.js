@@ -5,11 +5,12 @@ export const randomNum = (num) => {
 export const delay = ms => new Promise(res => setTimeout(res, (ms * 1000)))
 
 export const ESTADO = {
-  ROLL: 'ROLL',
+  ROLL_MOVE: 'ROLL_MOVE',
   MOVE_OR_CARDS: 'MOVE_OR_CARDS',
+  MOVE: 'MOVE',
+  ROLL_ATTACK: 'ROLL_ATTACK',
   ATTACK_OR_CARDS: 'ATTACK_OR_CARDS',
   ATTACK: 'ATTACK',
-  MOVE: 'MOVE',
   CARDS_CHOISE: 'CARDS',
   EVENT: 'EVENT'
 }

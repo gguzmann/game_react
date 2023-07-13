@@ -6,7 +6,7 @@ import { LifeContainer } from './components/life/LifeContainer'
 import { PlayerContainerTile } from './components/playerTile/PlayerContainerTile'
 import { storePlayer } from './store/storePlayer'
 function App () {
-  const { dice, life, tile, cards, state } = storePlayer()
+  const { dice, diceAtk, life, tile, cards, state } = storePlayer()
   return (
     <>
       <div><img src={fondo} alt='' className='absolute -z-10 h-full w-full' /></div>
@@ -20,11 +20,18 @@ function App () {
         <CardsContainer />
         <DiceContainer />
         <div className='div8 outline outline-fuchsia-500 p-5  font-bold'>
-          dice: {dice} <br />
-          tile: {tile ?? 'init'} <br />
-          life: {life} <br />
-          cards: {cards.length} <br />
-          state: {state}
+          <div className='flex justify-around'>
+            <div>
+              dice: {dice ?? 'null'} <br />
+              tile: {tile ?? 'init'} <br />
+              life: {life} <br />
+              cards: {cards.length} <br />
+              state: {state} <br />
+            </div>
+            <div>
+              dice Atk: {diceAtk ?? 'null'} <br />
+            </div>
+          </div>
         </div>
       </div>
     </>

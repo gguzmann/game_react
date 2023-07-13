@@ -5,7 +5,7 @@ export const DiceMove = () => {
   const { setDice, dice, state, setState } = storePlayer()
 
   const handleRoll = async () => {
-    if (state !== ESTADO.ROLL) return
+    if (state !== ESTADO.ROLL_MOVE) return
     let num = 0
     for (let index = 0; index < 15; index++) {
       await delay(0.1)

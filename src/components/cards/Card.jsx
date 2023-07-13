@@ -2,14 +2,21 @@ import { storePlayer } from '../../store/storePlayer'
 import { ESTADO, useCard } from '../../utils/utils'
 
 export const Card = ({ card, index }) => {
-  const { dice, setDice, setCards, cards, state, setState } = storePlayer()
+  const { diceAtk, setDiceAtk, dice, setDice, setCards, cards, state, setState } = storePlayer()
 
   const handleUseCard = () => {
-    if (state !== ESTADO.MOVE_OR_CARDS) return
+    if (![ESTADO.MOVE_OR_CARDS, ESTADO.ATTACK_OR_CARDS].includes(state)) return
 
-    setDice(useCard(card.img, dice))
+    if (state === ESTADO.ATTACK_OR_CARDS) {
+      setDiceAtk(useCard(card.img, diceAtk))
+      setState(ESTADO.ATTACK)
+    }
+    if (state === ESTADO.MOVE_OR_CARDS) {
+      setDice(useCard(card.img, dice))
+      setState(ESTADO.MOVE)
+    }
+
     setCards(cards.filter((x, i) => index !== i))
-    setState(ESTADO.MOVE)
   }
 
   return (
