@@ -29,7 +29,7 @@ export const Tile = ({ object, index }) => {
         console.log(object.life)
         // SI MONSTER =< 0
         setMonster(monster.map((x, i) => { return index === i ? '' : x }))
-        // setState(ESTADO.ROLL_MOVE)
+        setState(ESTADO.ROLL_MOVE)
       }
       setDiceAtk(null)
       setDice(null)
@@ -37,7 +37,7 @@ export const Tile = ({ object, index }) => {
   }
 
   return (
-    <div onClick={handleClick} className={`w-32 h-32 border-4 rounded flex items-center justify-center text-5xl ${event && 'border-red-600'} ${active && 'border-yellow-600 cursor-pointer'}`}>
+    <div onClick={handleClick} className={`w-32 h-32 border-4 rounded flex items-center justify-center text-5xl ${event && 'border-red-600 cursor-pointer'} ${active && 'border-yellow-600 cursor-pointer'}`}>
       {
         tile === index && <img src={PlayerSVG} alt='' width={150} />
 
