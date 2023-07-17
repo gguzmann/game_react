@@ -15,7 +15,7 @@ export const TileSupplie = ({ object, index }) => {
   }, [dice, state])
 
   const handleClick = () => {
-    if ([ESTADO.ATTACK, ESTADO.ATTACK_OR_CARDS, ESTADO.MOVE, ESTADO.MOVE_OR_CARDS].includes(state) && (active || event)) {
+    if ([ESTADO.ATTACK, ESTADO.ATTACK_OR_CARDS, ESTADO.MOVE, ESTADO.MOVE_OR_CARDS].includes(state) && active) {
       if (state === ESTADO.MOVE_OR_CARDS || state === ESTADO.MOVE) {
         active && setTile(index)
         setMonster(monster.map((x, i) => { return index === i ? '' : x }))

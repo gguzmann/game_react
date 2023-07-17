@@ -16,6 +16,7 @@ function App () {
     if (!ready) {
       const mazo = monster
       monster[randomNum(monster.length)] = supplies[randomNum(supplies.length)]
+      monster[3] = supplies[randomNum(supplies.length)]
       setMonster(mazo)
       setReady(true)
     }

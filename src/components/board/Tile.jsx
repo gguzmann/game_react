@@ -8,6 +8,8 @@ export const Tile = ({ object, index }) => {
   const [active, setActive] = useState(false)
   const [event, setEvent] = useState(false)
   const [hp, setHp] = useState(object.life)
+  const [effectMonster, setEffectMonster] = useState(false)
+  const [effectPlayer, setEffectPlayer] = useState(false)
 
   useEffect(() => {
     setActive(false)
@@ -29,31 +31,42 @@ export const Tile = ({ object, index }) => {
       if (state === ESTADO.ATTACK || state === ESTADO.ATTACK_OR_CARDS) {
         // SI MONSTER =< 0
         object.life = object.life - diceAtk
+        setEffectMonster(true)
         setHp(object.life)
         if (object.life < 1) {
           setMonster(monster.map((x, i) => { return index === i ? '' : x }))
-          setState(ESTADO.ROLL_MOVE)
+          if (tile === 2 || tile === 5 || tile === 8) {
+            setState(ESTADO.BOSS_MOVE)
+            setTile(10)
+          } else {
+            setState(ESTADO.ROLL_MOVE)
+          }
         } else {
           await delay(1)
-          setLife(life - 1)
+          setEffectPlayer(true)
+          setLife(life - object.attack)
+          await delay(1)
           setState(ESTADO.ROLL_ATTACK)
         }
         console.log('life2:', life)
       }
+      setEffectMonster(false)
+      setEffectPlayer(false)
       setDiceAtk(null)
       setDice(null)
     }
   }
 
   return (
-    <div onClick={handleClick} className={`w-32 h-32 border-4 rounded flex items-center justify-center text-5xl ${event && 'border-red-600 cursor-pointer'} ${active && 'border-yellow-600 cursor-pointer'}`}>
+    <div onClick={handleClick} className={` w-32 h-32 border-4 rounded flex items-center justify-center text-5xl ${event && 'border-red-600 cursor-pointer'} ${active && 'border-yellow-600 cursor-pointer'}`}>
       {
-        tile === index && <img src={PlayerSVG} alt='' width={150} />
+        tile === index && <img className={`${effectPlayer && 'animate__animated animate__flash'}`} src={PlayerSVG} alt='' width={150} />
 
       }
-      <img src={object.img} alt='' />
+      <img className={`${effectMonster && 'animate__animated animate__flash'}`} src={object.img} alt='' />
       <div className='absolute'>
-        <div className='relative top-10 left-12 text-white'>{hp > 0 && hp}</div>
+
+        <div className='relative top-12 left-12 text-white text-2xl'>{hp > 0 && hp}</div>
       </div>
     </div>
   )

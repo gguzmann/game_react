@@ -25,7 +25,7 @@ export const monster = [
     type: 'monster',
     name: 'Araña',
     life: 4,
-    attack: 1,
+    attack: 2,
     img: spider,
     tier: 1
   }

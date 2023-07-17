@@ -9,6 +9,7 @@ export const LifeContainer = () => {
 
           <div className='flex '>
             {
+            life > 0 &&
             new Array(life).fill(health).map((hp, i) => <div key={i} className='-ms-10'><img src={hp} alt='' width={80} height={80} /></div>)
           }
           </div>

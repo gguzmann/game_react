@@ -12,7 +12,9 @@ export const ESTADO = {
   ATTACK_OR_CARDS: 'ATTACK_OR_CARDS',
   ATTACK: 'ATTACK',
   CARDS_CHOISE: 'CARDS',
-  EVENT: 'EVENT'
+  EVENT: 'EVENT',
+  BOSS_MOVE: 'BOSS_MOCE',
+  BOSS_ATTACK: 'BOSS_ATTACK'
 }
 
 export const movemente = (tile, dice, index, setActive) => {
