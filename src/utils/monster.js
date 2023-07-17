@@ -4,6 +4,7 @@ import bat from '../assets/murc.png'
 export const monster = [
   {
     id: 0,
+    type: 'monster',
     name: 'Slime',
     life: 2,
     attack: 1,
@@ -12,6 +13,7 @@ export const monster = [
   },
   {
     id: 1,
+    type: 'monster',
     name: 'Muercielago',
     life: 3,
     attack: 1,
@@ -20,6 +22,7 @@ export const monster = [
   },
   {
     id: 2,
+    type: 'monster',
     name: 'Araña',
     life: 4,
     attack: 1,

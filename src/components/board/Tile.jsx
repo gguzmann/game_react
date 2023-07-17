@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import { storePlayer } from '../../store/storePlayer'
 import PlayerSVG from '../../assets/Personaje01.svg'
-import { ESTADO, movemente } from '../../utils/utils'
+import { ESTADO, delay, movemente } from '../../utils/utils'
 
 export const Tile = ({ object, index }) => {
-  const { dice, setDice, diceAtk, setDiceAtk, setTile, tile, state, setState, monster, setMonster } = storePlayer()
+  const { dice, setDice, diceAtk, setDiceAtk, setTile, tile, state, setState, monster, setMonster, setLife, life } = storePlayer()
   const [active, setActive] = useState(false)
   const [event, setEvent] = useState(false)
+  const [hp, setHp] = useState(object.life)
 
   useEffect(() => {
     setActive(false)
@@ -17,24 +18,27 @@ export const Tile = ({ object, index }) => {
     if ([ESTADO.ATTACK, ESTADO.ATTACK_OR_CARDS].includes(state)) {
       if (tile === index) setEvent(true)
     }
-  }, [dice, diceAtk])
+  }, [dice, diceAtk, state])
 
-  const handleClick = () => {
+  const handleClick = async () => {
     if ([ESTADO.ATTACK, ESTADO.ATTACK_OR_CARDS, ESTADO.MOVE, ESTADO.MOVE_OR_CARDS].includes(state) && (active || event)) {
       if (state === ESTADO.MOVE_OR_CARDS || state === ESTADO.MOVE) {
         active && setTile(index)
         setState(ESTADO.ROLL_ATTACK)
       }
       if (state === ESTADO.ATTACK || state === ESTADO.ATTACK_OR_CARDS) {
-        console.log(object.life)
         // SI MONSTER =< 0
-        monster[index].life = monster[index].life - diceAtk
-        if (monster[index].life < 0) {
+        object.life = object.life - diceAtk
+        setHp(object.life)
+        if (object.life < 1) {
           setMonster(monster.map((x, i) => { return index === i ? '' : x }))
           setState(ESTADO.ROLL_MOVE)
         } else {
+          await delay(1)
+          setLife(life - 1)
           setState(ESTADO.ROLL_ATTACK)
         }
+        console.log('life2:', life)
       }
       setDiceAtk(null)
       setDice(null)
@@ -49,7 +53,7 @@ export const Tile = ({ object, index }) => {
       }
       <img src={object.img} alt='' />
       <div className='absolute'>
-        <div className='relative top-10 left-12 text-white'>{monster[index].life}</div>
+        <div className='relative top-10 left-12 text-white'>{hp > 0 && hp}</div>
       </div>
     </div>
   )

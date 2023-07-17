@@ -2,7 +2,7 @@ export const randomNum = (num) => {
   return Math.floor(Math.random() * num)
 }
 
-export const delay = ms => new Promise(res => setTimeout(res, (ms * 1000)))
+export const delay = ms => new Promise(resolve => setTimeout(resolve, (ms * 1000)))
 
 export const ESTADO = {
   ROLL_MOVE: 'ROLL_MOVE',

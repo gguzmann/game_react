@@ -2,14 +2,14 @@ import { ESTADO, delay, randomNum } from '../../utils/utils'
 import { storePlayer } from '../../store/storePlayer'
 
 export const DiceAttack = () => {
-  const { setDiceAtk, diceAtk, state, setState } = storePlayer()
+  const { setDiceAtk, diceAtk, state, setState, attack } = storePlayer()
 
   const handleRoll = async () => {
     if (state !== ESTADO.ROLL_ATTACK) return
     let num = 0
     for (let index = 0; index < 15; index++) {
       await delay(0.1)
-      num = randomNum(6) + 1
+      num = randomNum(attack) + 1
       setDiceAtk(num)
     }
     setState(ESTADO.ATTACK_OR_CARDS)

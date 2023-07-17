@@ -6,6 +6,8 @@ import { mazoCards } from '../utils/cards'
 export const storePlayer = create((set, get) => ({
   life: 5,
   setLife: (value) => set(state => ({ life: value })),
+  attack: 3,
+  setAttack: (value) => set(state => ({ attack: value })),
   dice: null,
   setDice: (value) => set(state => ({ dice: value })),
   diceAtk: null,
