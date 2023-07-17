@@ -33,16 +33,15 @@ export const Tile = ({ object, index }) => {
         object.life = object.life - diceAtk
         setEffectMonster(true)
         setHp(object.life)
+        await delay(1)
         if (object.life < 1) {
           setMonster(monster.map((x, i) => { return index === i ? '' : x }))
           if (tile === 2 || tile === 5 || tile === 8) {
             setState(ESTADO.BOSS_MOVE)
-            setTile(10)
           } else {
             setState(ESTADO.ROLL_MOVE)
           }
         } else {
-          await delay(1)
           setEffectPlayer(true)
           setLife(life - object.attack)
           await delay(1)

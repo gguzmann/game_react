@@ -4,10 +4,12 @@ import { DiceAttack } from './DiceAttack'
 import { DiceMove } from './DiceMove'
 
 export const DiceContainer = () => {
-  const { state, setState } = storePlayer()
+  const { state, setState, setTile } = storePlayer()
 
-  const handleBoss = () => setState(ESTADO.BOSS_ATTACK)
-
+  const handleBoss = () => {
+    setState(ESTADO.BOSS_ATTACK)
+    setTile(10)
+  }
   return (
     <div className='div7 outline outline-yellow-900'>
       <div className='flex justify-center items-center h-full'>
