@@ -1,3 +1,10 @@
+import D1 from '../assets/dado/D1.png'
+import D2 from '../assets/dado/D2.png'
+import D3 from '../assets/dado/D3.png'
+import D4 from '../assets/dado/D4.png'
+import D5 from '../assets/dado/D5.png'
+import D6 from '../assets/dado/D6.png'
+
 export const randomNum = (num) => {
   return Math.floor(Math.random() * num)
 }
@@ -19,12 +26,12 @@ export const ESTADO = {
 
 export const diceImage = [
   '',
-  'http://drive.google.com/uc?export=view&id=1F7CIZa1Oc8rvzsOj5NEImIo7dq84hRvO',
-  'http://drive.google.com/uc?export=view&id=1dzjHpXW4nmWv4YyyCK0oUY_iAaDeEEpx',
-  'http://drive.google.com/uc?export=view&id=1zP9d2qmM_anNC9qa3GAZz6K5VmsXTQCA',
-  'http://drive.google.com/uc?export=view&id=1tMo1cemFrwAj88rlad4zbOuy87fYp-Tx',
-  'http://drive.google.com/uc?export=view&id=1JuhcKhvC-GNtJXxqEmYiWHUMIDBikd4g',
-  'http://drive.google.com/uc?export=view&id=1swmaI8Q_CvektfT4mNESfgiDmTN7sIAf'
+  D1,
+  D2,
+  D3,
+  D4,
+  D5,
+  D6
 ]
 
 export const movemente = (tile, dice, index, setActive) => {
