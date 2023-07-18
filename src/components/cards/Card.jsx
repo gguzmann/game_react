@@ -1,5 +1,5 @@
 import { storePlayer } from '../../store/storePlayer'
-import { ESTADO, useCard } from '../../utils/utils'
+import { ESTADO, UseCard } from '../../utils/utils'
 
 export const Card = ({ card, index }) => {
   const { diceAtk, setDiceAtk, dice, setDice, setCards, cards, state, setState } = storePlayer()
@@ -8,11 +8,11 @@ export const Card = ({ card, index }) => {
     if (![ESTADO.MOVE_OR_CARDS, ESTADO.ATTACK_OR_CARDS].includes(state)) return
 
     if (state === ESTADO.ATTACK_OR_CARDS) {
-      setDiceAtk(useCard(card.img, diceAtk))
+      setDiceAtk(UseCard(card.img, diceAtk))
       setState(ESTADO.ATTACK)
     }
     if (state === ESTADO.MOVE_OR_CARDS) {
-      setDice(useCard(card.img, dice))
+      setDice(UseCard(card.img, dice))
       setState(ESTADO.MOVE)
     }
 

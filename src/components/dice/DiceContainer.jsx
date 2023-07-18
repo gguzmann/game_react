@@ -7,7 +7,7 @@ export const DiceContainer = () => {
   const { state, setState, setTile } = storePlayer()
 
   const handleBoss = () => {
-    setState(ESTADO.BOSS_ATTACK)
+    setState(ESTADO.ROLL_MOVE)
     setTile(10)
   }
   return (

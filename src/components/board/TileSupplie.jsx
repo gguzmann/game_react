@@ -19,9 +19,13 @@ export const TileSupplie = ({ object, index }) => {
       if (state === ESTADO.MOVE_OR_CARDS || state === ESTADO.MOVE) {
         active && setTile(index)
         setMonster(monster.map((x, i) => { return index === i ? '' : x }))
-        setState(ESTADO.ROLL_MOVE)
         if (object.name === 'Life') setLife(life + 1)
         if (object.name === 'Attack') setAttack(attack + 1)
+        if (tile === 2 || tile === 5 || tile === 8) {
+          setState(ESTADO.BOSS_MOVE)
+        } else {
+          setState(ESTADO.ROLL_MOVE)
+        }
       }
       setDice(null)
     }

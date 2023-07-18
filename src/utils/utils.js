@@ -13,9 +13,18 @@ export const ESTADO = {
   ATTACK: 'ATTACK',
   CARDS_CHOISE: 'CARDS',
   EVENT: 'EVENT',
-  BOSS_MOVE: 'BOSS_MOCE',
-  BOSS_ATTACK: 'BOSS_ATTACK'
+  BOSS_MOVE: 'BOSS_MOVE'
 }
+
+export const diceImage = [
+  '',
+  'http://drive.google.com/uc?export=view&id=1F7CIZa1Oc8rvzsOj5NEImIo7dq84hRvO',
+  'http://drive.google.com/uc?export=view&id=1dzjHpXW4nmWv4YyyCK0oUY_iAaDeEEpx',
+  'http://drive.google.com/uc?export=view&id=1zP9d2qmM_anNC9qa3GAZz6K5VmsXTQCA',
+  'http://drive.google.com/uc?export=view&id=1tMo1cemFrwAj88rlad4zbOuy87fYp-Tx',
+  'http://drive.google.com/uc?export=view&id=1JuhcKhvC-GNtJXxqEmYiWHUMIDBikd4g',
+  'http://drive.google.com/uc?export=view&id=1swmaI8Q_CvektfT4mNESfgiDmTN7sIAf'
+]
 
 export const movemente = (tile, dice, index, setActive) => {
   if (tile === null) {
@@ -42,7 +51,7 @@ export const movemente = (tile, dice, index, setActive) => {
   }
 }
 
-export const useCard = (card, dice) => {
+export const UseCard = (card, dice) => {
   if (card === '+1') { return dice + 1 }
   if (card === '-1') { return dice - 1 }
   if (card === '+2') { return dice + 2 }

@@ -9,21 +9,29 @@ import { storePlayer } from './store/storePlayer'
 import { randomNum } from './utils/utils'
 import { supplies } from './utils/supplies'
 import { BossContainer } from './components/boss/BossContainer'
+import { BossLife } from './components/boss/BossLife'
+import { bosses } from './utils/boss'
+import { GameOver } from './components/modals/GameOver'
 function App () {
-  const { dice, diceAtk, life, tile, cards, state, monster, setMonster } = storePlayer()
+  const { dice, diceAtk, life, tile, cards, state, monster, setMonster, level, setBoss } = storePlayer()
   const [ready, setReady] = useState(false)
   useEffect(() => {
-    if (!ready) {
-      const mazo = monster
-      monster[randomNum(monster.length)] = supplies[randomNum(supplies.length)]
-      monster[3] = supplies[randomNum(supplies.length)]
-      setMonster(mazo)
-      setReady(true)
-    }
-  }, [])
+    const mazo = monster
+    monster[randomNum(monster.length)] = supplies[randomNum(supplies.length)]
+    monster[randomNum(monster.length)] = supplies[randomNum(supplies.length)]
+    // monster[3] = supplies[randomNum(supplies.length)]
+    setMonster(mazo)
+    setReady(true)
+    setBoss({ ...bosses[level] })
+    // setTile(null)
+  }, [level])
 
   return (
     <>
+      {
+      life < 1 &&
+        <GameOver />
+    }
       <div><img src={fondo} alt='' className='absolute -z-10 h-full w-full' /></div>
       {
           ready &&
@@ -31,7 +39,7 @@ function App () {
               <LifeContainer />
               <PlayerContainerTile />
               <BoardContainer />
-              <div className='div4 outline outline-purple-500'> life boss</div>
+              <BossLife />
               <BossContainer />
               <CardsContainer />
               <DiceContainer />
