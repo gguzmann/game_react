@@ -13,7 +13,8 @@ export const ESTADO = {
   ATTACK: 'ATTACK',
   CARDS_CHOISE: 'CARDS',
   EVENT: 'EVENT',
-  BOSS_MOVE: 'BOSS_MOVE'
+  BOSS_MOVE: 'BOSS_MOVE',
+  CHOISE_CARD: 'CHOISE_CARD'
 }
 
 export const diceImage = [

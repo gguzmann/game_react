@@ -1,10 +1,9 @@
 import health from '../../assets/Corazon.png'
 import { storePlayer } from '../../store/storePlayer'
-import { bosses } from '../../utils/boss'
 import { diceImage } from '../../utils/utils'
 
 export const BossLife = () => {
-  const { level, boss } = storePlayer()
+  const { boss } = storePlayer()
 
   return (
     <div className='div4 outline outline-purple-500'>
@@ -20,6 +19,7 @@ export const BossLife = () => {
 
           <div className='flex '>
             {
+            boss.life > 0 &&
             boss.chance.map((x, i) => <div key={i} className=''><img src={diceImage[x]} alt='' width={70} height={70} /></div>)
           }
           </div>

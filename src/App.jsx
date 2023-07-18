@@ -12,18 +12,20 @@ import { BossContainer } from './components/boss/BossContainer'
 import { BossLife } from './components/boss/BossLife'
 import { bosses } from './utils/boss'
 import { GameOver } from './components/modals/GameOver'
+import { ChoiseCards } from './components/modals/ChoiseCards'
 function App () {
-  const { dice, diceAtk, life, tile, cards, state, monster, setMonster, level, setBoss } = storePlayer()
+  const { dice, diceAtk, life, tile, cards, state, monster, setMonster, level, setBoss, setTile } = storePlayer()
   const [ready, setReady] = useState(false)
   useEffect(() => {
-    const mazo = monster
-    monster[randomNum(monster.length)] = supplies[randomNum(supplies.length)]
-    monster[randomNum(monster.length)] = supplies[randomNum(supplies.length)]
+    setMonster([])
+    const mazo = new Array(9).fill(null).map(x => ({ ...monster[randomNum(monster.length)] }))
+    // mazo[randomNum(mazo.length)] = supplies[randomNum(supplies.length)]
+    // mazo[randomNum(mazo.length)] = supplies[randomNum(supplies.length)]
     // monster[3] = supplies[randomNum(supplies.length)]
     setMonster(mazo)
     setReady(true)
     setBoss({ ...bosses[level] })
-    // setTile(null)
+    setTile(10)
   }, [level])
 
   return (
@@ -32,6 +34,7 @@ function App () {
       life < 1 &&
         <GameOver />
     }
+      <ChoiseCards />
       <div><img src={fondo} alt='' className='absolute -z-10 h-full w-full' /></div>
       {
           ready &&
@@ -54,6 +57,8 @@ function App () {
                   </div>
                   <div>
                     dice Atk: {diceAtk ?? 'null'} <br />
+                    level: {level} <br />
+
                   </div>
                 </div>
               </div>

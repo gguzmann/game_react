@@ -4,7 +4,7 @@ import { ESTADO, randomNum } from '../utils/utils'
 import { mazoCards } from '../utils/cards'
 
 export const storePlayer = create((set, get) => ({
-  life: 5,
+  life: 10,
   setLife: (value) => set(state => ({ life: value })),
   attack: 3,
   setAttack: (value) => set(state => ({ attack: value })),
@@ -12,7 +12,7 @@ export const storePlayer = create((set, get) => ({
   setDice: (value) => set(state => ({ dice: value })),
   diceAtk: null,
   setDiceAtk: (value) => set(state => ({ diceAtk: value })),
-  tile: null,
+  tile: 10,
   setTile: (value) => set(state => ({ tile: value })),
   level: 0,
   setLevel: (value) => set(state => ({ level: value })),

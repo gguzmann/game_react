@@ -20,7 +20,7 @@ export const Tile = ({ object, index }) => {
     if ([ESTADO.ATTACK, ESTADO.ATTACK_OR_CARDS].includes(state)) {
       if (tile === index) setEvent(true)
     }
-  }, [dice, diceAtk, state])
+  }, [dice, diceAtk, state, monster])
 
   const handleClick = async () => {
     if ([ESTADO.ATTACK, ESTADO.ATTACK_OR_CARDS, ESTADO.MOVE, ESTADO.MOVE_OR_CARDS].includes(state) && (active || event)) {
@@ -43,8 +43,8 @@ export const Tile = ({ object, index }) => {
           }
         } else {
           setEffectPlayer(true)
-          setLife(life - object.attack)
           await delay(1)
+          setLife(life - object.attack)
           setState(ESTADO.ROLL_ATTACK)
         }
         console.log('life2:', life)

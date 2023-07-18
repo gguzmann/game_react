@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 import PlayerSVG from '../../assets/Personaje01.svg'
 import { storePlayer } from '../../store/storePlayer'
-import { bosses } from '../../utils/boss'
 import { ESTADO, delay } from '../../utils/utils'
 
 export const BossContainer = () => {
-  const { tile, level, state, dice, life, setLife, setState, setDice, setLevel, boss, setBoss } = storePlayer()
+  const { tile, state, dice, life, setLife, setState, setDice, boss, setBoss } = storePlayer()
   const [atk, setAtk] = useState(false)
   const [effectMonster, setEffectMonster] = useState(false)
   const [effectPlayer, setEffectPlayer] = useState(false)
@@ -29,17 +28,17 @@ export const BossContainer = () => {
         console.log(bossLife)
         if (bossLife < 1) {
           setBoss({})
-          setLevel(2)
+          setState(ESTADO.CHOISE_CARD)
         } else {
           setEffectPlayer(true)
-          setLife(life - boss.attack)
           await delay(1)
+          setLife(life - boss.attack)
           setState(ESTADO.ROLL_MOVE)
         }
       } else {
         setEffectPlayer(true)
-        setLife(life - boss.attack)
         await delay(1)
+        setLife(life - boss.attack)
         setState(ESTADO.ROLL_MOVE)
       }
       setEffectMonster(false)
