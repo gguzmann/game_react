@@ -8,11 +8,11 @@ export const Card = ({ card, index }) => {
     if (![ESTADO.MOVE_OR_CARDS, ESTADO.ATTACK_OR_CARDS].includes(state)) return
 
     if (state === ESTADO.ATTACK_OR_CARDS) {
-      setDiceAtk(UseCard(card.img, diceAtk))
+      setDiceAtk(UseCard(card.name, diceAtk))
       setState(ESTADO.ATTACK)
     }
     if (state === ESTADO.MOVE_OR_CARDS) {
-      setDice(UseCard(card.img, dice))
+      setDice(UseCard(card.name, dice))
       setState(ESTADO.MOVE)
     }
 
@@ -20,8 +20,8 @@ export const Card = ({ card, index }) => {
   }
 
   return (
-    <div onClick={handleUseCard} className='border-4 rounded w-32 h-32 grid place-content-center cursor-pointer hover:-translate-y-3'>
-      {card.img}
+    <div onClick={handleUseCard} className='rounded w-28 h-32 grid place-content-center cursor-pointer hover:-translate-y-3'>
+      <img src={card.img} alt='' />
     </div>
   )
 }

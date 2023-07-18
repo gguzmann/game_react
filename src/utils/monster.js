@@ -1,7 +1,7 @@
 import slime from '../assets/slime.png'
 import spider from '../assets/Araña.png'
 import bat from '../assets/murc.png'
-export const monster = [
+export const monst = [
   {
     id: 0,
     type: 'monster',
@@ -9,7 +9,7 @@ export const monster = [
     life: 2,
     attack: 1,
     img: slime,
-    tier: 1
+    tier: 0
   },
   {
     id: 1,
@@ -27,6 +27,6 @@ export const monster = [
     life: 4,
     attack: 2,
     img: spider,
-    tier: 1
+    tier: 2
   }
 ]

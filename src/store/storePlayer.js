@@ -1,10 +1,9 @@
 import { create } from 'zustand'
-import { monster } from '../utils/monster'
 import { ESTADO, randomNum } from '../utils/utils'
 import { mazoCards } from '../utils/cards'
 
 export const storePlayer = create((set, get) => ({
-  life: 10,
+  life: 5,
   setLife: (value) => set(state => ({ life: value })),
   attack: 3,
   setAttack: (value) => set(state => ({ attack: value })),
@@ -16,7 +15,7 @@ export const storePlayer = create((set, get) => ({
   setTile: (value) => set(state => ({ tile: value })),
   level: 0,
   setLevel: (value) => set(state => ({ level: value })),
-  monster: new Array(9).fill(null).map(x => ({ ...monster[randomNum(monster.length)] })),
+  monster: [],
   setMonster: (value) => set(state => ({ monster: value })),
   cards: new Array(3).fill('').map(x => mazoCards[randomNum(mazoCards.length)]),
   setCards: (value) => set(state => ({ cards: value })),

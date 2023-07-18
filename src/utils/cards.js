@@ -1,44 +1,51 @@
+import DadoFlip from '../assets/cartas/DadoFlip.png'
+import DadoMas1 from '../assets/cartas/DadoMas1.png'
+import DadoMas2 from '../assets/cartas/DadoMas2.png'
+import DadoMenos1 from '../assets/cartas/DadoMenos1.png'
+import DadoMenos2 from '../assets/cartas/DadoMenos2.png'
+import DadoVolveraTirar from '../assets/cartas/DadoVolveraTirar.png'
+
 export const mazoCards = [
   {
     id: 0,
     type: 'card',
-    name: 'Voltear dados',
-    img: 'V'
+    name: 'V',
+    img: DadoFlip
   },
-  {
-    id: 1,
-    type: 'card',
-    name: 'Volver a lanzar',
-    img: 'R'
-  },
+  // {
+  //   id: 1,
+  //   type: 'card',
+  //   name: 'R',
+  //   img: DadoVolveraTirar
+  // },
   {
     id: 2,
     type: 'card',
     name: '+1',
-    img: '+1'
+    img: DadoMas1
   },
   {
     id: 3,
     type: 'card',
     name: '-1',
-    img: '-1'
+    img: DadoMenos1
   },
   {
     id: 5,
     type: 'card',
     name: '+2',
-    img: '+2'
+    img: DadoMas2
   },
   {
     id: 6,
     type: 'card',
     name: '-2',
-    img: '-2'
-  },
-  {
-    id: 6,
-    type: 'card',
-    name: 'x2',
-    img: 'x2'
+    img: DadoMenos2
   }
+  // {
+  //   id: 6,
+  //   type: 'card',
+  //   name: 'x2',
+  //   img: 'x2'
+  // }
 ]

@@ -2,9 +2,10 @@ import { storePlayer } from '../../store/storePlayer'
 import PlayerSVG from '../../assets/Personaje01.svg'
 import { useEffect, useState } from 'react'
 import { ESTADO, movemente } from '../../utils/utils'
+import { mazoCards } from '../../utils/cards'
 
 export const TileSupplie = ({ object, index }) => {
-  const { dice, setDice, setAttack, attack, setTile, tile, state, setState, monster, setMonster, setLife, life } = storePlayer()
+  const { dice, setDice, setAttack, attack, setTile, tile, state, setState, monster, setMonster, setLife, life, cards, setCards } = storePlayer()
   const [active, setActive] = useState(false)
 
   useEffect(() => {
@@ -21,7 +22,10 @@ export const TileSupplie = ({ object, index }) => {
         setMonster(monster.map((x, i) => { return index === i ? '' : x }))
         if (object.name === 'Life') setLife(life + 1)
         if (object.name === 'Attack') setAttack(attack + 1)
-        if (tile === 2 || tile === 5 || tile === 8) {
+        if (object.name === '+1') setCards([...cards, mazoCards.find(x => x.name === '+1')])
+        if (object.name === '+2') setCards([...cards, mazoCards.find(x => x.name === '+2')])
+        if (object.name === '-1') setCards([...cards, mazoCards.find(x => x.name === '-1')])
+        if (index === 2 || index === 5 || index === 8) {
           setState(ESTADO.BOSS_MOVE)
         } else {
           setState(ESTADO.ROLL_MOVE)

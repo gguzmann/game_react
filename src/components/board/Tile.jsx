@@ -7,11 +7,12 @@ export const Tile = ({ object, index }) => {
   const { dice, setDice, diceAtk, setDiceAtk, setTile, tile, state, setState, monster, setMonster, setLife, life } = storePlayer()
   const [active, setActive] = useState(false)
   const [event, setEvent] = useState(false)
-  const [hp, setHp] = useState(object.life)
+  const [hp, setHp] = useState(0)
   const [effectMonster, setEffectMonster] = useState(false)
   const [effectPlayer, setEffectPlayer] = useState(false)
 
   useEffect(() => {
+    setHp(object.life)
     setActive(false)
     setEvent(false)
     if ([ESTADO.MOVE_OR_CARDS, ESTADO.MOVE, ESTADO.ROLL_MOVE].includes(state) && dice) {
@@ -20,7 +21,7 @@ export const Tile = ({ object, index }) => {
     if ([ESTADO.ATTACK, ESTADO.ATTACK_OR_CARDS].includes(state)) {
       if (tile === index) setEvent(true)
     }
-  }, [dice, diceAtk, state, monster])
+  }, [dice, diceAtk, state])
 
   const handleClick = async () => {
     if ([ESTADO.ATTACK, ESTADO.ATTACK_OR_CARDS, ESTADO.MOVE, ESTADO.MOVE_OR_CARDS].includes(state) && (active || event)) {
@@ -65,7 +66,7 @@ export const Tile = ({ object, index }) => {
       <img className={`${effectMonster && 'animate__animated animate__flash'}`} src={object.img} alt='' />
       <div className='absolute'>
 
-        <div className='relative top-12 left-12 text-white text-2xl'>{hp > 0 && hp}</div>
+        <div className='relative top-12 left-12 text-white text-2xl'>{hp > 0 && object.life}</div>
       </div>
     </div>
   )

@@ -13,19 +13,21 @@ import { BossLife } from './components/boss/BossLife'
 import { bosses } from './utils/boss'
 import { GameOver } from './components/modals/GameOver'
 import { ChoiseCards } from './components/modals/ChoiseCards'
+import { monst } from './utils/monster'
 function App () {
-  const { dice, diceAtk, life, tile, cards, state, monster, setMonster, level, setBoss, setTile } = storePlayer()
+  const { dice, diceAtk, life, tile, cards, state, setMonster, level, setBoss, setTile } = storePlayer()
   const [ready, setReady] = useState(false)
   useEffect(() => {
     setMonster([])
-    const mazo = new Array(9).fill(null).map(x => ({ ...monster[randomNum(monster.length)] }))
-    // mazo[randomNum(mazo.length)] = supplies[randomNum(supplies.length)]
-    // mazo[randomNum(mazo.length)] = supplies[randomNum(supplies.length)]
-    // monster[3] = supplies[randomNum(supplies.length)]
+    const filterMonsterTier = monst.filter(x => x.tier === level)
+    const mazo = new Array(9).fill(null).map(x => ({ ...filterMonsterTier[randomNum(filterMonsterTier.length)] }))
+    mazo[randomNum(mazo.length)] = supplies[randomNum(supplies.length)]
+    mazo[randomNum(mazo.length)] = supplies[randomNum(supplies.length)]
+    // mazo[3] = supplies[randomNum(supplies.length)]
     setMonster(mazo)
     setReady(true)
     setBoss({ ...bosses[level] })
-    setTile(10)
+    setTile(null)
   }, [level])
 
   return (
