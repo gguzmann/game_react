@@ -1,7 +1,7 @@
 import imgLife from '../assets/Corazon.png'
-import DadoMas1 from '../assets/cartas/DadoMas1.png'
-import DadoMas2 from '../assets/cartas/DadoMas2.png'
-import DadoMenos1 from '../assets/cartas/DadoMenos1.png'
+import DadoMas1 from '../assets/cardImages/DadoMas1.png'
+import DadoMas2 from '../assets/cardImages/DadoMas2.png'
+import DadoMenos1 from '../assets/cardImages/DadoMenos1.png'
 export const supplies = [
   {
     id: 0,

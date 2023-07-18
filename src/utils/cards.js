@@ -1,9 +1,9 @@
-import DadoFlip from '../assets/cartas/DadoFlip.png'
-import DadoMas1 from '../assets/cartas/DadoMas1.png'
-import DadoMas2 from '../assets/cartas/DadoMas2.png'
-import DadoMenos1 from '../assets/cartas/DadoMenos1.png'
-import DadoMenos2 from '../assets/cartas/DadoMenos2.png'
-import DadoVolveraTirar from '../assets/cartas/DadoVolveraTirar.png'
+import DadoFlip from '../assets/cardImages/DadoFlip.png'
+import DadoMas1 from '../assets/cardImages/DadoMas1.png'
+import DadoMas2 from '../assets/cardImages/DadoMas2.png'
+import DadoMenos1 from '../assets/cardImages/DadoMenos1.png'
+import DadoMenos2 from '../assets/cardImages/DadoMenos2.png'
+import DadoVolveraTirar from '../assets/cardImages/DadoVolveraTirar.png'
 
 export const mazoCards = [
   {
