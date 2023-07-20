@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import fondo from './assets/NuevoFondo01.png'
+import fondo from './assets/NuevoFondo01V2.png'
 import { BoardContainer } from './components/board/BoardContainer'
 import { CardsContainer } from './components/cards/CardsContainer'
 import { DiceContainer } from './components/dice/DiceContainer'
