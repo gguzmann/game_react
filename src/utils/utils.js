@@ -1,9 +1,9 @@
-import D1 from '../assets/dado/D1.png'
-import D2 from '../assets/dado/D2.png'
-import D3 from '../assets/dado/D3.png'
-import D4 from '../assets/dado/D4.png'
-import D5 from '../assets/dado/D5.png'
-import D6 from '../assets/dado/D6.png'
+import D1 from '../assets/dados/D1.png'
+import D2 from '../assets/dados/D2.png'
+import D3 from '../assets/dados/D3.png'
+import D4 from '../assets/dados/D4.png'
+import D5 from '../assets/dados/D5.png'
+import D6 from '../assets/dados/D6.png'
 
 export const randomNum = (num) => {
   return Math.floor(Math.random() * num)
