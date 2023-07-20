@@ -48,7 +48,7 @@ function App () {
               <BossContainer />
               <CardsContainer />
               <DiceContainer />
-              <div className='div8 outline outline-fuchsia-500 p-5  font-bold'>
+              <div className='div8 p-5  font-bold'>
                 <div className='flex justify-around'>
                   <div>
                     dice: {dice ?? 'null'} <br />

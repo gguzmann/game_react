@@ -11,7 +11,7 @@ export const DiceContainer = () => {
     setTile(10)
   }
   return (
-    <div className='div7 outline outline-yellow-900'>
+    <div className='div7'>
       <div className='flex justify-center items-center h-full'>
         {[ESTADO.MOVE, ESTADO.MOVE_OR_CARDS, ESTADO.ROLL_MOVE].includes(state) && <DiceMove />}
         {[ESTADO.ROLL_ATTACK, ESTADO.ATTACK, ESTADO.ATTACK_OR_CARDS].includes(state) && <DiceAttack />}

@@ -6,7 +6,7 @@ export const BossLife = () => {
   const { boss } = storePlayer()
 
   return (
-    <div className='div4 outline outline-purple-500'>
+    <div className='div4'>
       <div className='flex justify-around items-center h-full'>
         <div>
 

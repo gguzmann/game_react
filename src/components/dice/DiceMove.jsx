@@ -1,4 +1,4 @@
-import { ESTADO, delay, randomNum } from '../../utils/utils'
+import { ESTADO, delay, diceImage, randomNum } from '../../utils/utils'
 import { storePlayer } from '../../store/storePlayer'
 
 export const DiceMove = () => {
@@ -17,8 +17,9 @@ export const DiceMove = () => {
   return (
     <div onClick={handleRoll} className='w-32 h-32 border-4 rounded flex items-center justify-center text-5xl bg-white bg-opacity-30 cursor-pointer hover:bg-opacity-100'>
       {
-        dice || 'Roll'
+        dice ? <img src={diceImage[dice]} alt='' /> : 'Roll'
          }
+
     </div>
   )
 }

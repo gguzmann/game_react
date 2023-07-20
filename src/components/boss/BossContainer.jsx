@@ -50,7 +50,7 @@ export const BossContainer = () => {
   }
 
   return (
-    <div className='div5 outline outline-pink-500'>
+    <div className='div5'>
       <div className='flex justify-center items-center h-full'>
         {tile === 10 && <img className={`${effectPlayer && 'animate__animated animate__flash'}`} src={PlayerSVG} alt='' width={150} />}
         <div onClick={handleClick} className={`${atk && 'border-4 border-red-600 bg-opacity-30 cursor-pointer'} flex items-center justify-center text-5xl`}>

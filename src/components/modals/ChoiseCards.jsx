@@ -1,10 +1,13 @@
 import { supplies } from '../../utils/supplies'
 import { ESTADO, randomNum } from '../../utils/utils'
 import { storePlayer } from '../../store/storePlayer'
+import { useState } from 'react'
 
 export const ChoiseCards = () => {
   const { state, setState, setLevel, level } = storePlayer()
-  const handleClick = () => {
+  const [cartas, setCartas] = useState(new Array(3).fill('').map((card, i) => supplies[randomNum(supplies.length)]))
+  const handleClick = (item) => {
+    console.log(item)
     setState(ESTADO.ROLL_MOVE)
     setLevel(level + 1)
   }
@@ -14,7 +17,7 @@ export const ChoiseCards = () => {
         <div className='text-3xl mb-3'>CHOISE ONE CARD:</div>
         <div className='flex justify-between'>
           {
-            new Array(3).fill('').map((card, i) => <button onClick={handleClick} key={i} className='border p-3 rounded hover:bg-white hover:bg-opacity-20 hover:border-yellow-500'><img src={supplies[randomNum(supplies.length)].img} width={50} alt='' /></button>)
+            cartas.map((card, i) => <button onClick={() => handleClick(card)} key={i} className='border p-3 rounded hover:bg-white hover:bg-opacity-20 hover:border-yellow-500'><img src={card.img} width={50} alt='' /></button>)
           }
         </div>
       </div>

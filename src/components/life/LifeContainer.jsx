@@ -3,7 +3,7 @@ import { storePlayer } from '../../store/storePlayer'
 export const LifeContainer = () => {
   const { life, attack } = storePlayer()
   return (
-    <div className='div1 outline outline-green-500'>
+    <div className='div1'>
       <div className='flex justify-around items-center h-full'>
         <div>
 
