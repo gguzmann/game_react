@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import fondo from './assets/NuevoFondo01V2.png'
 import { BoardContainer } from './components/board/BoardContainer'
 import { CardsContainer } from './components/cards/CardsContainer'
 import { DiceContainer } from './components/dice/DiceContainer'
@@ -14,6 +13,7 @@ import { bosses } from './utils/boss'
 import { GameOver } from './components/modals/GameOver'
 import { ChoiseCards } from './components/modals/ChoiseCards'
 import { monst } from './utils/monster'
+import { background } from './utils/backgrounds'
 function App () {
   const { dice, diceAtk, life, tile, cards, state, setMonster, level, setBoss, setTile } = storePlayer()
   const [ready, setReady] = useState(false)
@@ -37,7 +37,7 @@ function App () {
         <GameOver />
     }
       <ChoiseCards />
-      <div><img src={fondo} alt='' className='absolute -z-10 h-full w-full' /></div>
+      <div><img src={background[level]} alt='' className='absolute -z-10 h-full w-full' /></div>
       {
           ready &&
             <div className='parent min-h-screen bg-opacity-20 bg-white'>
