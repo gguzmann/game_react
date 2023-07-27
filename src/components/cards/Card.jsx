@@ -8,12 +8,24 @@ export const Card = ({ card, index }) => {
     if (![ESTADO.MOVE_OR_CARDS, ESTADO.ATTACK_OR_CARDS].includes(state)) return
 
     if (state === ESTADO.ATTACK_OR_CARDS) {
-      setDiceAtk(UseCard(card.name, diceAtk))
-      setState(ESTADO.ATTACK)
+      const numCard = UseCard(card.name, diceAtk)
+      if (numCard) {
+        setDiceAtk(numCard)
+        setState(ESTADO.ATTACK)
+      } else {
+        setDiceAtk(null)
+        setState(ESTADO.ROLL_ATTACK)
+      }
     }
     if (state === ESTADO.MOVE_OR_CARDS) {
-      setDice(UseCard(card.name, dice))
-      setState(ESTADO.MOVE)
+      const numCard = UseCard(card.name, dice)
+      if (numCard) {
+        setDice(numCard)
+        setState(ESTADO.MOVE)
+      } else {
+        setDice(null)
+        setState(ESTADO.ROLL_MOVE)
+      }
     }
 
     setCards(cards.filter((x, i) => index !== i))

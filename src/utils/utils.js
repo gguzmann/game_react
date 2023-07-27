@@ -34,6 +34,10 @@ export const diceImage = [
   D6
 ]
 
+export const mazeCard = () => {
+
+}
+
 export const movemente = (tile, dice, index, setActive) => {
   if (tile === null) {
     if (dice === 1 && index === 0) setActive(true)

@@ -12,12 +12,12 @@ export const mazoCards = [
     name: 'V',
     img: DadoFlip
   },
-  // {
-  //   id: 1,
-  //   type: 'card',
-  //   name: 'R',
-  //   img: DadoVolveraTirar
-  // },
+  {
+    id: 1,
+    type: 'card',
+    name: 'R',
+    img: DadoVolveraTirar
+  },
   {
     id: 2,
     type: 'card',
